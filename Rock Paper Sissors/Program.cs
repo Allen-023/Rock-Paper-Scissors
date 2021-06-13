@@ -1,17 +1,19 @@
 ﻿using System;
 
 
-namespace Rock_Paper_Sissors
+namespace Rock_Paper_Scissors
 {
     class Program
     {
         static void Main(string[] args)
         {
             string continueOrStop = "Enter a number between 1-3 or 'Stop': ";
-            
+            string[] rockPaperScissor = {"Rock", "Paper", "Scissor"};
+
+           
 
             //Prompt User
-            Console.WriteLine("Welcome to Rock Paper Sissor." + "\n" + "1 = Rock, 2 = Paper, 3 = Sissor.\n");
+            Console.WriteLine("Welcome to Rock Paper Scissor." + "\n" + "1 = Rock, 2 = Paper, 3 = Scissor.\n");
             Console.WriteLine(continueOrStop);
 
             //User input 
@@ -30,7 +32,7 @@ namespace Rock_Paper_Sissors
                 {
                     inputValidation = true;
 
-                    //game
+                    // game
                     while (playerOne != "Stop" && inputValidation == true)
                     {
 
@@ -39,37 +41,41 @@ namespace Rock_Paper_Sissors
                         int playerTwo = rand.Next(1, 4);
 
                         // Display results of choices picked
-                        Console.WriteLine("\n" + "You Picked: " + playerOneInt.ToString());
-                        Console.WriteLine("Computer Picked: " + playerTwo.ToString());
+                        Console.WriteLine("\n" + "You Picked: " + rockPaperScissor[playerOneInt - 1]);
+                        Console.WriteLine("Computer Picked: " + rockPaperScissor[playerTwo - 1]);
 
-                        //tie
+                        // tie
                         if (playerOneInt == playerTwo)
                         {
                             Console.WriteLine("Its a tie!" + "\n\n" + continueOrStop);
                             inputValidation = false;
                             playerOne = Console.ReadLine();
                         }
-                        //rock beats sissors 
+
+                        // rock beats scissors 
                         else if (playerOneInt == 1 && playerTwo == 3)
                         {
                             Console.WriteLine("You Won!" + "\n\n" + continueOrStop);
                             inputValidation = false;
                             playerOne = Console.ReadLine();
                         }
-                        //paper beats rock
+
+                        // paper beats rock
                         else if (playerOneInt == 2 && playerTwo == 1)
                         {
                             Console.WriteLine("You Won!" + "\n\n" + continueOrStop);
                             inputValidation = false;
                             playerOne = Console.ReadLine();
                         }
-                        // sissor beats paper
+
+                        // scissor beats paper
                         else if (playerOneInt == 3 && playerTwo == 2)
                         {
                             Console.WriteLine("You Won!" + "\n\n" + continueOrStop);
                             inputValidation = false;
                             playerOne = Console.ReadLine();
                         }
+
                         // otherwise lose
                         else
                         {
@@ -81,14 +87,7 @@ namespace Rock_Paper_Sissors
                 }
             }
 
-
-
-            
-
             Console.WriteLine("\nThanks for playing!");
-
-
-
         }
     }
 }
